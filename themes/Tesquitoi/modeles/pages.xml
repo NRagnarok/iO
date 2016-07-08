@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pages>
+	<page>
+		<entete>
+			<![CDATA[
+				<section id="quote" class="bg-parlex">
+        			<div class="parlex-back">
+            			<div class="container secPad text-center">
+							<h1><b>{TITRE}</b></h1>
+            			</div>
+        			</div>
+   				</section>
+    
+				<section class="secPad">
+        			<div class="container">
+        				<ol class="breadcrumb">
+  							<li><a href=".">{INDEX}</a></li>
+  							<li class="active">{TITRE}</li>
+						</ol>
+            			<div class="row">
+                			<div class="col-md-12 text-left tileBox">
+								<div class="panel panel-default">
+			]]>
+		</entete>
+		<pied>
+			<![CDATA[
+								</div>
+							</div>
+            			</div>
+        			</div>
+    			</section>
+			]]>
+		</pied>
+	</page>
+</pages>

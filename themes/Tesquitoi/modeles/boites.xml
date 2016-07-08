@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<boites>
+	<boite>
+		<entete>
+			<![CDATA[
+	<section id="portfolio" class="page-section section appear clearfix thPad">
+        <div class="container">
+			<div class="heading text-center">
+                <h2>{TITRE}</h2>
+			]]>
+		</entete>
+			
+		<pied>
+			<![CDATA[
+	      	</div>
+        </div>
+    </section>
+			]]>
+		</pied>
+	</boite>
+</boites>

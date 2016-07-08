@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<composant>
+	<billetterie>
+		<nom>Billetterie</nom>
+		<fonctions_principales>billetterie</fonctions_principales>
+	</billetterie>
+</composant>

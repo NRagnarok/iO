@@ -1,0 +1,12 @@
+Options -Indexes
+Options -Multiviews
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} !^www.penn-ar-rock.fr$
+RewriteRule ^(.*)   http://www.penn-ar-rock.fr/$1
+
+RewriteRule ^administration/([a-z0-9-_]+)$ administration.php?lien=$1 [L,QSA]
+RewriteRule ^administration/$ administration.php [L,QSA]
+RewriteRule ^([a-z0-9-_]+)$ index.php?lien=$1 [L,QSA]
+#ErrorDocument 404 Erreur

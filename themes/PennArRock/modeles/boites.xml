@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<boites>
+	<boite>
+		<entete>
+			<![CDATA[
+	    <footer id="footer">
+    <div class="row" style="margin: 0 10% 0 10%;">
+    <div class="col-lg-2">{TITRE}
+    </div>
+    <div class="col-lg-10">
+			]]>
+		</entete>
+			
+		<pied>
+			<![CDATA[
+</div>
+    </div>
+        <div class="container">
+            <div class="text-center" id="main">
+                <p>&copy;2016 <b>Penn Ar Rock</b> - <a href="mentions-legales">Mentions légales</a></p>                
+            </div>
+        </div>
+    </footer>
+			]]>
+		</pied>
+	</boite>
+</boites>

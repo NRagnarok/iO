@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alertes>
+	<alerte>
+		<succes><![CDATA[<div class="alert alert-success" role="alert"><span class="fa fa-check" aria-hidden="true"></span> {MESSAGE}</div>]]></succes>
+		<info><![CDATA[<div class="alert alert-info" role="alert"><span class="fa fa-flag" aria-hidden="true"></span> {MESSAGE}</div>]]></info>
+		<attention><![CDATA[<div class="alert alert-warning" role="alert"><span class="fa fa-warning" aria-hidden="true"></span> {MESSAGE}</div>]]></attention>
+		<danger><![CDATA[<div class="alert alert-danger" role="alert"><span class="fa fa-times" aria-hidden="true"></span> {MESSAGE}</div>]]></danger>
+	</alerte>
+</alertes>

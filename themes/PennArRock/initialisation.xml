@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<initialisation>
+	<theme>
+		<header_infos>
+			<![CDATA[
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <style>
+	body{
+		background-image:url(themes/PennArRock/images/background.jpg);
+		background-attachment:fixed;
+		background-repeat:no-repeat;
+		background-position:center top;
+	}
+	</style>
+
+    <!--[if lt IE 9]>
+	    <script src="themes/PennArRock/js/html5shiv.js"></script>
+	    <script src="themes/PennArRock/js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="themes/PennArRock/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="themes/PennArRock/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="themes/PennArRock/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="themes/PennArRock/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="themes/PennArRock/images/ico/apple-touch-icon-57-precomposed.png">
+			]]>
+		</header_infos>
+		
+		<css>{animate.css};{bootstrap.min.css};{font-awesome.min.css};{main.css};{responsive.css}</css>
+		
+		<pre_contenu>
+		</pre_contenu>
+		
+		<post_contenu>
+		<![CDATA[	       
+		]]>
+		</post_contenu>
+
+		<js>{jquery.js};{bootstrap.min.js};{smoothscroll.js};{jquery.parallax.js};{coundown-timer.js};{jquery.scrollTo.js};{jquery.nav.js};{jquery.fitvids.js};{main.js}</js>
+		
+		<footer_infos>
+		<![CDATA[
+	<script>
+  tempsEvent = "3 june 2016 20:30:00";
+  
+  if(typeof menuMax == 'undefined'){$('.main-nav').addClass('fixed-menu');}
+  
+    $(document).ready(function(){
+    $(".videodetector").fitVids();
+  });
+  $("img").addClass("img-responsive");
+  </script>
+		]]>
+		</footer_infos>
+	</theme>
+</initialisation>

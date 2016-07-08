@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<articles>
+	<article>
+		<entete>
+			<![CDATA[
+				<section id="contenu" class="panel panel-default">
+				<div class="panel-body">
+				<h1>{TITRE}</h1>
+			]]>
+		</entete>
+		<pied>
+			<![CDATA[
+				</div>
+				</section>
+			]]>
+		</pied>
+	</article>
+</articles>

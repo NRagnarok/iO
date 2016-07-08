@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menus>
+	<menu>
+		<entete>
+			<![CDATA[
+			<header id="header" role="banner">		
+		<div class="main-nav">
+			<div class="container">
+				<div class="header-top">
+					<div class="pull-right social-icons">
+						<a href="https://twitter.com/PennArRock"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.facebook.com/PennArRock"><i class="fa fa-facebook"></i></a>
+						<a href="https://www.youtube.com/channel/UCUICVdY4QbRkIDEfL3Zybxw"><i class="fa fa-youtube"></i></a>
+					</div>
+				</div>     
+		        <div class="row">	        		
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                    <span class="sr-only">Toggle navigation</span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                <a class="navbar-brand" href="accueil">
+		                	<img class="img-responsive" src="themes/PennArRock/images/logo.png" alt="logo">
+		                </a>                    
+		            </div>
+		            <div class="collapse navbar-collapse">
+		                <ul class="nav navbar-nav navbar-right">    
+]]>
+		</entete>
+	
+		<lien_normal>
+			<![CDATA[<li><a class="no-scroll" href="{LIEN}">{TITRE}</a></li>]]>
+		</lien_normal>
+		
+		<lien_principal>
+			<![CDATA[<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="{LIEN}">{TITRE} <b class="caret"></b></a><ul class="dropdown-menu">{LIENS_SECONDAIRES}</ul></li>]]>
+		</lien_principal>
+		
+		<lien_secondaire>
+			<![CDATA[<li><a class="no-scroll" href="{LIEN}">{TITRE}</a></li>]]>
+		</lien_secondaire>
+		
+		<ligne_secondaire>
+			<![CDATA[<li><a class="no-scroll">{TITRE}</a></li>]]>
+		</ligne_secondaire>
+	
+		<pied>
+			<![CDATA[
+					                    <li><a class="no-scroll" href="accueil#a-propos">A Propos</a></li>                     
+		                    <li><a class="no-scroll" href="accueil#partenaires">Partenaires</a></li>
+		                    <li><a class="no-scroll" href="accueil#contact">Contact</a></li> 
+					                </ul>
+		            </div>
+		        </div>
+	        </div>
+        </div>                    
+    </header>
+			]]>
+		</pied>
+	</menu>
+</menus>
