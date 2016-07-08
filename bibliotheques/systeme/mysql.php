@@ -1,10 +1,10 @@
 <?php
-include("fonctions.php");
 
 function MySqlConnexion(){
 	global $mysql;
 	global $mysql_connexion;
-	$mysql_connexion = mysqli_connect($mysql['serveur'], $mysql['utilisateur'], $mysql['motdepasse'], $mysql['base']);
+	if(!@$mysql_connexion = mysqli_connect($mysql['serveur'], $mysql['utilisateur'], $mysql['motdepasse'], $mysql['base']))recuperation();
+	
 }
 
 MySqlConnexion();

@@ -19,6 +19,7 @@ $url = 	str_replace($site['HTTP'].$_SERVER['SERVER_NAME'].$port, '',
 		str_replace('index.php', '', 
 		str_replace(':/', '://', 
 		str_replace('//', '/', $url.$_SERVER['SERVER_NAME'].$port."/".$_SERVER['PHP_SELF']))));
+	
 $racine = str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']);
 
 $lecture_conf = file($racine."configuration.php");

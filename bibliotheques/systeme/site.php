@@ -1,4 +1,6 @@
 <?php
+include("fonctions.php");
+include("recuperation.php");
 include("mysql.php");
 if(!@include($site['racine']."/composants/site/site.php")){include("reparation.php");exit();}
 InitComposants();
