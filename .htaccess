@@ -2,7 +2,7 @@ Options -Indexes
 Options -Multiviews
 Options +FollowSymLinks
 RewriteEngine On
-
+RewriteBase /github/io/
 RewriteRule ^administration/([a-z0-9-_]+)$ administration.php?lien=$1 [L,QSA]
 RewriteRule ^administration/$ administration.php [L,QSA]
 RewriteRule ^([a-z0-9-_]+)$ index.php?lien=$1 [L,QSA]

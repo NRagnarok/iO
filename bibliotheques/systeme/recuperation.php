@@ -1,6 +1,12 @@
 <?php
-function recuperation(){
-	?>
+function recuperation($cause = ""){
+	$installation_dispo = 0;
+	if(@include("bibliotheques/installation/installation.php")){
+		if(isset($_GET['reinstallation']))installation("reinstallation");
+		if(isset($_GET['installation']))installation("installation");
+		$installation_dispo = 1;
+	}
+?>
     <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -57,18 +63,20 @@ function recuperation(){
 		</div></center>
           
           <br><br><br>
-          
+          <?php if(!$installation_dispo){?>
        <center><div class="alert alert-warning" style="width:75%">
-  			<strong>Attention</strong> La configuration n'autorise pas une réparation de votre part.
+  			<strong>Attention</strong> L'état du système ne permet pas une réparation de votre part.
 		</div></center>
+        <?php }else{ ?>
           
           <div class="col-lg-4">
-         		<a href="#" class="btn btn-warning btn-block btn-lg">Reconfigurer l'accès à la base de donnée</a>
+         		<a href="?reinstallation" class="btn btn-warning btn-block btn-lg">Reconfigurer l'accès à la base de donnée</a>
           </div>
           <div class="col-lg-4"></div>
           <div class="col-lg-4">
-         		<a href="#" class="btn btn-lg btn-block btn-danger">Réinstaller iO</a>
+         		<a href="?installation" class="btn btn-lg btn-block btn-danger">Réinstaller iO</a>
           </div>
+          <?php } ?>
         </div>
       </div> <!-- /row -->
 </div> <!-- /container full -->

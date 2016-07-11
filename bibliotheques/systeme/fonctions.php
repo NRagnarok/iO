@@ -157,4 +157,28 @@ function decryptage($data, $key = "7D5Fez9G") {
     $data = substr($data,1,strlen($data)-1);
     return unserialize($data);
 }
+function miseajourConfiguration($type, $variable, $valeur){
+	global $site, $mysql;
+	switch($type){
+	case 'mysql':
+		$contenuVar = $mysql[$variable];
+		break;
+	case 'site':
+		$contenuVar = $site[$variable];
+		break;
+	}
+	$racine = str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']); //on enlève le index.php du lien complet système vers le fichier principal php
+
+	$lecture_conf = file($racine."configuration.php"); // on lit le fichier de conf
+	$contenu_conf = ""; 
+	foreach($lecture_conf as $ligne){
+		$contenu_conf .= $ligne; //On met chaque ligne du fichier dans une même variable
+	}
+	$nouveau_contenu = str_replace('$'.$type.'[\''.$variable.'\'] = "'.$contenuVar.'";', '$'.$type.'[\''.$variable.'\'] = "'.$valeur.'";', $contenu_conf); //on met à jour la ligne
+
+	$reecriture_conf = fopen($racine.'configuration.php', 'w+'); //On réécrit le fichier
+	fwrite($reecriture_conf, $nouveau_contenu);
+	fclose($reecriture_conf);
+	return true;
+}
 ?>  
