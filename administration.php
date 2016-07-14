@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+ini_set('display_errors',1);
+date_default_timezone_set('Europe/Paris');
+if(isset($_SERVER['HTTPS'])){$site['HTTP'] = "https://";}else{$site['HTTP'] = "http://";}
+
 require('configuration.php');
 require('bibliotheques/systeme/mysql.php');
 

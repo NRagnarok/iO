@@ -114,18 +114,63 @@ function installation($action = "installation"){
   				</div>
 			</div>
             <?php }else{?>
+            <div class="panel panel-default">
+  				<div class="panel-body">
+                	<h1>Configuration du site</h1>
+                    <br /><br /><br />
+    				<form action="?<?php echo $action;?>" method="post">
+                    	<h2>Base de donnée</h2>
+                    	<div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Serveur</span>
+ 							<input type="text" class="form-control" placeholder="local.host" name="serveur" value="<?php echo $mysql['serveur'];?>">
+						</div>
+                        <br />
+                    	<div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Utilisateur</span>
+ 							<input type="text" class="form-control" placeholder="root" name="utilisateur" value="<?php echo $mysql['utilisateur'];?>">
+						</div>  
+                        <br />
+                        <div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Mot de passe</span>
+ 							<input type="password" class="form-control" placeholder="********" name="motdepasse" value="<?php echo $mysql['motdepasse'];?>">
+						</div>
+                        <br />
+                        <div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Base</span>
+ 							<input type="text" class="form-control" placeholder="database_1" name="base" value="<?php echo $mysql['base'];?>">
+						</div>
+                        <br />
+                        <div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Préfixe</span>
+ 							<input type="text" class="form-control" placeholder="prfx_" name="prefixe" value="<?php echo $mysql['prefixe'];?>">
+						</div>
+                        <br />
+                        <h2>Site</h2>
+                        <div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Nom du site</span>
+ 							<input type="text" class="form-control" placeholder="Mon site" name="nom" value="<?php echo $mysql['prefixe'];?>">
+						</div>
+                        <br />
+                        <div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Description du site</span>
+ 							<input type="text" class="form-control" placeholder="Mon nouveau site créé avec iO !" name="description" value="<?php echo $mysql['prefixe'];?>">
+						</div>
+                        <br />
+                        <div class="input-group">
+  							<span class="input-group-addon" id="basic-addon1">Méthode de gestion des url des pages</span>
+ 							<select class="form-control" name="apache"><option value="htaccess">htaccess (Serveur Apache, URL de la forme monsite.tld/page)</option></select>
+						</div>
+                        <br /><br />
+                        <div class="row">
+                        <div class="col-lg-6"><a href="?" class="btn btn-warning">Annuler</a></div>
+                        <div class="col-lg-6"><input type="submit" value="Installer iO" class="btn btn-success"></div>
+                        </div>
+                    </form>
+  				</div>
+			</div>      
+
         	<?php } ?>
           	
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           </div>
           <div class="col-lg-2"></div>
         </div>
@@ -136,11 +181,8 @@ function installation($action = "installation"){
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="themes/defaut/js/bootstrap.min.js"></script>
 	</body>
-</html>
-    
-    
-    
-    <?php
+</html> 
+ <?php
 	exit();
 }
 ?>

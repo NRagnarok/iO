@@ -1,5 +1,5 @@
 <?php
-function recuperation($cause = ""){
+function recuperation($cause = "bdd"){
 	$installation_dispo = 0;
 	if(@include("bibliotheques/installation/installation.php")){
 		if(isset($_GET['reinstallation']))installation("reinstallation");
@@ -59,7 +59,11 @@ function recuperation($cause = ""){
         <div class="col-lg-12 text-center v-center">
           
         <center><div class="alert alert-danger" style="width:90%">
+        <?php if($cause == "configuration"){?>
+        <h1><strong>Erreur</strong> La configuration du système est manquante !</h1>
+        <?php }else{?>
         <h1><strong>Erreur</strong> La connexion à la base de donnée ne s'est pas établie correctement !</h1>
+        <?php } ?>
 		</div></center>
           
           <br><br><br>
@@ -67,6 +71,12 @@ function recuperation($cause = ""){
        <center><div class="alert alert-warning" style="width:75%">
   			<strong>Attention</strong> L'état du système ne permet pas une réparation de votre part.
 		</div></center>
+        <?php }else if($cause == "configuration"){ ?>
+        
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"><a href="?installation" class="btn btn-lg btn-block btn-success">Installer iO</a></div>
+        <div class="col-lg-4"></div>
+        
         <?php }else{ ?>
           
           <div class="col-lg-4">
