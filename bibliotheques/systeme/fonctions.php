@@ -154,7 +154,7 @@ function miseajourConfiguration($type, $variable, $valeur){
 		$contenuVar = $site[$variable];
 		break;
 	}
-	$racine = str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']); //on enlève le index.php du lien complet système vers le fichier principal php
+	$racine = str_replace(array('index.php', 'administration.php'), '', $_SERVER['SCRIPT_FILENAME']); //on enlève le index.php du lien complet système vers le fichier principal php
 
 	$lecture_conf = file($racine."configuration.php"); // on lit le fichier de conf
 	$contenu_conf = ""; 

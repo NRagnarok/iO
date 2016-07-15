@@ -1,5 +1,4 @@
 <?php
-include ("owncloud.php");
 function site_utilisateurs(){
 	if(isset($_POST['editer'])){
 		if(isset($_POST['mdp_change'])){

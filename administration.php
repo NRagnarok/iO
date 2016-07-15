@@ -161,6 +161,9 @@ function debut_admin(){
                             <li>
                                 <a href="site_menu">Menu</a>
                             </li>
+                            <li>
+                                <a href="composants">Composants</a>
+                            </li>
                         </ul>
                     </li>
                     <?php
