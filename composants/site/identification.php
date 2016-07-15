@@ -222,7 +222,7 @@ $code = genererMDP();
 $sujet = $site['nom'].' - Validation de votre inscription';
 $message = '<p style="font-family: Tahoma, Geneva, sans-serif;">Bonjour !</p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Pour terminer votre inscription, vous devez cliquer sur lien ci-dessous :</p>
-<p><a href="'.$site['url'].'inscription?code='.$code.'">'.$site['url'].'inscription?code='.$code.'</a></p>
+<p><a href="'.siteURL().'inscription?code='.$code.'">'.siteURL().'inscription?code='.$code.'</a></p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Vous pourrez par la suite r&eacute;server vos places depuis notre site avec votre compte. </p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Vous &ecirc;tes susceptible de recevoir d\'autres mails pour vos r&eacute;servations.</p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">&nbsp;</p>
@@ -324,7 +324,7 @@ if(authentificationCheck() == 1){
 $sujet = $site['nom'].' - Validation de votre changement d\'email';
 $message = '<p style="font-family: Tahoma, Geneva, sans-serif;">Bonjour !</p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Pour terminer votre changement d\'email, vous devez cliquer sur lien ci-dessous :</p>
-<p><a href="http://'.$site['url'].'/inscription?code='.$code.'">http://'.$site['url'].'/inscription?code='.$code.'</a></p>
+<p><a href="http://'.siteURL().'/inscription?code='.$code.'">http://'.siteURL().'/inscription?code='.$code.'</a></p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Vous pourrez par la suite r&eacute;server vos places depuis notre site avec votre compte. </p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Vous &ecirc;tes susceptible de recevoir d\'autres mails pour vos r&eacute;servations.</p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">&nbsp;</p>
@@ -386,7 +386,7 @@ echo str_replace("{TITRE}", "Email de confirmation", $theme['page_entete']);
 $sujet = $site['nom'].' - Validation de votre inscription';
 $message = '<p style="font-family: Tahoma, Geneva, sans-serif;">Bonjour !</p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Pour terminer votre inscription, vous devez cliquer sur lien ci-dessous :</p>
-<p><a href="'.$site['url'].'inscription?code='.$code.'">'.$site['url'].'inscription?code='.$code.'</a></p>
+<p><a href="'.siteURL().'inscription?code='.$code.'">'.siteURL().'inscription?code='.$code.'</a></p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Vous pourrez par la suite r&eacute;server vos places depuis notre site avec votre compte. </p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">Vous &ecirc;tes susceptible de recevoir d\'autres mails pour vos r&eacute;servations.</p>
 <p style="font-family: Tahoma, Geneva, sans-serif;">&nbsp;</p>

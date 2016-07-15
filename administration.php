@@ -1,30 +1,27 @@
 <?php
 session_start();
 
-ini_set('display_errors',1);
-date_default_timezone_set('Europe/Paris');
-if(isset($_SERVER['HTTPS'])){$site['HTTP'] = "https://";}else{$site['HTTP'] = "http://";}
-
 require('configuration.php');
 require('bibliotheques/systeme/mysql.php');
+require('bibliotheques/systeme/fonctions.php');
 
 if(!isset($_SESSION['utilisateur']) 
 && !isset($_SESSION['pass']) 
 && !isset($_SESSION['nom']) 
 && !isset($_SESSION['prenom']) 
 && !isset($_SESSION['methodconnex'])){
-	header('Location:'.$site['url'].'connexion?noconnect'); 
+	header('Location:'.siteURL().'connexion?noconnect'); 
 	exit();
 }else{
 	if($_SESSION['grade'] != "admin"){
-		header('Location:'.$site['url'].'connexion?limit'); 
+		header('Location:'.siteURL().'connexion?limit'); 
 		exit();
 	}
 	
 	$req = req('SELECT id, motdepasse, validation FROM __utilisateurs WHERE mail = "'.$_SESSION['utilisateur'].'"');
 	$utilisateur = fetch($req);
 	if($utilisateur['motdepasse'] != $_SESSION['pass']){
-		header('Location:'.$site['url'].'connexion?badpass'); 
+		header('Location:'.siteURL().'connexion?badpass'); 
 		exit();
 	}
 }
@@ -66,16 +63,16 @@ function debut_admin(){
     <title><?php echo $site['nom'];?> - Administration</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo $site['url'];?>themes/SBAdmin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>themes/SBAdmin/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?php echo $site['url'];?>themes/SBAdmin/css/sb-admin.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>themes/SBAdmin/css/sb-admin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="<?php echo $site['url'];?>themes/SBAdmin/css/plugins/morris.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>themes/SBAdmin/css/plugins/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="<?php echo $site['url'];?>themes/SBAdmin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo siteURL();?>themes/SBAdmin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,35 +81,35 @@ function debut_admin(){
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <link href="<?php echo $site['url'];?>themes/SBAdmin/css/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="<?php echo siteURL();?>themes/SBAdmin/css/bootstrap-tagsinput.css" rel="stylesheet" />
     
-    <link href="<?php echo $site['url'];?>themes/SBAdmin/css/material.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>themes/SBAdmin/css/material.css" rel="stylesheet">
     
-    <link href="<?php echo $site['url'];?>bibliotheques/3rd-party/js/jqueryUI/jquery-ui.min.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>bibliotheques/3rd-party/js/jqueryUI/jquery-ui.min.css" rel="stylesheet">
     
-    <link href="<?php echo $site['url'];?>bibliotheques/3rd-party/js/nestedSortable/nestedSortable.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>bibliotheques/3rd-party/js/nestedSortable/nestedSortable.css" rel="stylesheet">
     
-    <link href="<?php echo $site['url'];?>bibliotheques/3rd-party/js/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="<?php echo siteURL();?>bibliotheques/3rd-party/js/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet">
 
 
     <!-- jQuery -->
-    <script src="<?php echo $site['url'];?>themes/SBAdmin/js/jquery.js"></script>
+    <script src="<?php echo siteURL();?>themes/SBAdmin/js/jquery.js"></script>
     
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo $site['url'];?>themes/SBAdmin/js/bootstrap.min.js"></script>
+    <script src="<?php echo siteURL();?>themes/SBAdmin/js/bootstrap.min.js"></script>
 
-	<script src="<?php echo $site['url'];?>themes/SBAdmin/js/bootstrap-tagsinput.min.js"></script>
+	<script src="<?php echo siteURL();?>themes/SBAdmin/js/bootstrap-tagsinput.min.js"></script>
     
     <!-- MomentJS -->
-    <script src="<?php echo $site['url'];?>themes/SBAdmin/js/moment-with-locales.js"></script> 
+    <script src="<?php echo siteURL();?>themes/SBAdmin/js/moment-with-locales.js"></script> 
     
-    <script src="<?php echo $site['url'];?>bibliotheques/3rd-party/js/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="<?php echo siteURL();?>bibliotheques/3rd-party/js/datetimepicker/bootstrap-datetimepicker.js"></script>
     
-    <script src="<?php echo $site['url'];?>bibliotheques/3rd-party/js/jqueryUI/jquery-ui.min.js"></script> 
+    <script src="<?php echo siteURL();?>bibliotheques/3rd-party/js/jqueryUI/jquery-ui.min.js"></script> 
     
-    <script src="<?php echo $site['url'];?>bibliotheques/3rd-party/js/nestedSortable/nestedSortable.js"></script>  
+    <script src="<?php echo siteURL();?>bibliotheques/3rd-party/js/nestedSortable/nestedSortable.js"></script>  
     
-    <script src="<?php echo $site['url'];?>bibliotheques/3rd-party/js/ckeditor/ckeditor.js"></script>
+    <script src="<?php echo siteURL();?>bibliotheques/3rd-party/js/ckeditor/ckeditor.js"></script>
 
 </head>
 
@@ -133,7 +130,7 @@ function debut_admin(){
                 <a class="navbar-brand" href="">Administration</a>
             </div>
             <ul class="nav navbar-nav">
-        		<li><a href="<?php echo $site['url'];?>"><?php echo $site['nom'];?></a></li>
+        		<li><a href="<?php echo siteURL();?>"><?php echo $site['nom'];?></a></li>
         	</ul>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -230,9 +227,9 @@ function fin_admin(){
     <!-- /#wrapper --> 
     
     <!-- Morris Charts JavaScript -->
-    <script src="<?php echo $site['url'];?>themes/SBAdmin/js/plugins/morris/raphael.min.js"></script>
-    <script src="<?php echo $site['url'];?>themes/SBAdmin/js/plugins/morris/morris.min.js"></script>
-    <script src="<?php echo $site['url'];?>themes/SBAdmin/js/plugins/morris/morris-data.js"></script>
+    <script src="<?php echo siteURL();?>themes/SBAdmin/js/plugins/morris/raphael.min.js"></script>
+    <script src="<?php echo siteURL();?>themes/SBAdmin/js/plugins/morris/morris.min.js"></script>
+    <script src="<?php echo siteURL();?>themes/SBAdmin/js/plugins/morris/morris-data.js"></script>
 
 </body>
 

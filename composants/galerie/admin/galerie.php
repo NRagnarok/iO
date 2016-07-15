@@ -7,7 +7,7 @@ function galerie_photo_editeur(){
 	?>
  <form action="galerie_editeur" method="post">
 	<div class="jumbotron">
-    	<center><img src="<?php echo $site['url'].'/ressources/galerie/'.$d['galerie'].'/thumb/'.$d['image']; ?>"></center>
+    	<center><img src="<?php echo siteURL().'/ressources/galerie/'.$d['galerie'].'/thumb/'.$d['image']; ?>"></center>
    		<div class="form-group">
         	<label>Titre de l'image</label>
             <input type="hidden" name="id" value="<?php echo $d['id'];?>">
@@ -77,11 +77,11 @@ $_SESSION['UPLOADFolder'] = $site['racine']."/ressources/galerie/".$_GET['galeri
 
 
 
-<script src="<?php echo $site['url'];?>/composants/galerie/admin/js/jquery.ui.widget.js"></script>
+<script src="<?php echo siteURL();?>/composants/galerie/admin/js/jquery.ui.widget.js"></script>
 
-<script src="<?php echo $site['url'];?>/composants/galerie/admin/js/jquery.iframe-transport.js"></script>
+<script src="<?php echo siteURL();?>/composants/galerie/admin/js/jquery.iframe-transport.js"></script>
 
-<script src="<?php echo $site['url'];?>/composants/galerie/admin/js/jquery.fileupload.js"></script>
+<script src="<?php echo siteURL();?>/composants/galerie/admin/js/jquery.fileupload.js"></script>
 
 <script>
 function ordre(nomdeFichier){
@@ -95,7 +95,7 @@ req.send(null);
 $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
-    var url = '<?php echo $site['url'];?>/composants/galerie/admin/upload/';
+    var url = '<?php echo siteURL();?>/composants/galerie/admin/upload/';
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
@@ -172,7 +172,7 @@ function galerie_editeur(){
 		while ($d = fetch($req)) {
 ?>
 <tr>
-    <td><img src="<?php echo $site['url'].'/ressources/galerie/'.$d['galerie'].'/thumb/'.$d['image']; ?>"></td>
+    <td><img src="<?php echo siteURL().'/ressources/galerie/'.$d['galerie'].'/thumb/'.$d['image']; ?>"></td>
     <td><?php echo $d['titre']; ?></td>
     <td>
     	<a class="btn btn-xs btn-primary" href="galerie_photo_editeur?editer=<?php echo $d['id'];?>"><i class="fa fa-wrench"></i> Modifier</a>&nbsp;

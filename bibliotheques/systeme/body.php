@@ -2,7 +2,7 @@
 
 echo("<body>");
 
-menu($site['url'], $mysql['prefixe']);
+menu(siteURL(), $mysql['prefixe']);
 
 echo($pre_contenu);
 

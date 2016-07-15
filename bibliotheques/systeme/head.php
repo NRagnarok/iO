@@ -12,7 +12,7 @@ echo("\n".'<meta name="robots" content="index">');
 echo("\n".'<meta name="generator" content="Io">');
 echo("\n".'<meta name="description" content="'.$site['description'].'">');
 echo("\n".'<meta name="viewport" content="width=device-width, user-scalable=yes" />');
-echo("\n".'<link rel="icon" href="'.$site['url'].'themes/'.$site['theme'].'/favicon.ico" />');
+echo("\n".'<link rel="icon" href="'.siteURL().'themes/'.$site['theme'].'/favicon.ico" />');
 echo("\n".'<title>'.$site['nom'].'</title>');
 
 //*************

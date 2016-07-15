@@ -1,5 +1,6 @@
 <?php
 require("../../../../../../configuration.php");
+require("../../../../../../bibliotheques/systeme/fonctions.php");
 
 require(__DIR__ . '/lang/fr.php');
 
@@ -124,7 +125,7 @@ $usersiteroot = substr($_SERVER["SCRIPT_FILENAME"], 0, (stripos($_SERVER["SCRIPT
 		$dossier_article = "";
 	}
 	
-    $useruploadfolder = $site['url']."ressources/".$dossier_article;
+    $useruploadfolder = siteURL()."ressources/".$dossier_article;
     $useruploadpath = $site['racine']."ressources/".$dossier_article;
     $foldershistory[] = $site['racine']."ressources/".$dossier_article;
         

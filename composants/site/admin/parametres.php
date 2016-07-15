@@ -101,7 +101,7 @@ $site[\'theme\'] = "'.$_POST['theme'].'";
     <label>URL du site</label>
     <div class="form-group input-group">
         <span class="input-group-addon"><?php echo ($site['HTTP'].$_SERVER['SERVER_NAME'].$port); ?></span>
-		<input type="text" class="form-control" name="url" value="<?php echo(str_replace($site['HTTP'].$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'], "", $site['url']));?>">
+		<input type="text" class="form-control" name="url" value="<?php echo(str_replace($site['HTTP'].$_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'], "", siteURL()));?>">
     </div>
     <label>Chemin absolu du site</label>
     <div class="form-group input-group">
