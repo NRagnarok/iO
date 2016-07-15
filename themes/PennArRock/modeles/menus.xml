@@ -47,10 +47,7 @@
 		</ligne_secondaire>
 	
 		<pied>
-			<![CDATA[
-					                    <li><a class="no-scroll" href="accueil#a-propos">A Propos</a></li>                     
-		                    <li><a class="no-scroll" href="accueil#partenaires">Partenaires</a></li>
-		                    <li><a class="no-scroll" href="accueil#contact">Contact</a></li> 
+			<![CDATA[ 
 					                </ul>
 		            </div>
 		        </div>

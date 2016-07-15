@@ -15,25 +15,25 @@ function billetterie(){
 	
 	
 	switch($_GET['lien']){
-		case "billetterie": 
+		case "billetterie_evenements": 
 			echo str_replace("{TITRE}", "Billetterie", $theme['page_entete']);
 			include("reserver.php");
 			echo $theme['page_pied']; 
 			break;
-		case "reservations": 
+		case "billetterie_reservations": 
 			echo str_replace("{TITRE}", "Mes réservations", $theme['page_entete']);
 			include("reservations.php"); 
 			echo $theme['page_pied'];
 			break;
-		case "imprimer": 
+		case "billetterie_imprimer": 
 			include("print.php"); 
 			break;
-		case "suppression-reservation": 
+		case "billetterie_suppression": 
 			echo str_replace("{TITRE}", "Suppression d'une réservation", $theme['page_entete']);
 			include("suppression.php"); 
 			echo $theme['page_pied'];
 			break;
-		case "modification-reservation": 
+		case "billetterie_modification": 
 			echo str_replace("{TITRE}", "Modification d'une réservation", $theme['page_entete']);
 			include("nomresa.php");
 			echo $theme['page_pied'];

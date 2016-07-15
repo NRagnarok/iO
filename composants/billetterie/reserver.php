@@ -1,6 +1,6 @@
 <?php
 if($utilisateur['validation'] != "1"){
-	redirection('reservations?novalid');
+	redirection('billetterie_reservations?novalid');
 	exit();
 }
 
@@ -22,11 +22,11 @@ if(isset($_GET['toosaveduser'])){
 }
 alerteFermeture();
 if($billetterie['ouvert'] == "non"){
-	redirection('reservations');
+	redirection('billetterie_reservations');
 	exit();
 }
 ?>
-<center><a href="reservations" class="btn btn-danger btn-lg">Voir mes réservations</a></center>
+<center><a href="billetterie_reservations" class="btn btn-danger btn-lg">Voir mes réservations</a></center>
 <b>Les &eacute;v&eacute;nements disponibles</b>
 <table width="100%" class="table table-bordered table-hover">
 	<tr class="active">
@@ -80,7 +80,7 @@ while($whl_event = fetch($whl_event_req)){
 			</div>
 		</td>
 		<td width="20%" align="center">
-        <form action="billetterie" method="post">
+        <form action="billetterie_evenements" method="post">
 			<input type="hidden" name="idevent" value="<?php echo $whl_event['id']; ?>">
 			<select name="nombre" <?php if($plcrestant <= 0){echo('disabled');} ?> class="form-control">
 <?php

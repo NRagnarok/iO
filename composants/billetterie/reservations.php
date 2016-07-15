@@ -1,7 +1,7 @@
 <a href="javascript:history.go(-1)" class="btn btn-default"><i class="fa fa-chevron-left"></i> Retour</a>
 <?php 
 alerte('Aucune entr&eacute;e en salle ne sera autoris&eacute;e sans pr&eacute;sentation de vos billet, pensez &agrave; les 
-		<a href="imprimer?utilisateur='.$utilisateur['mail'].'" target="_blank">imprimer</a> !', 'info');
+		<a href="billetterie_imprimer?utilisateur='.$utilisateur['mail'].'" target="_blank">imprimer</a> !', 'info');
 alerteFermeture(); 
 if(isset($_GET['attente'])){
 	alerte('Vos places ont &eacute;t&eacute; plac&eacute;es en attente.', 'succes');
@@ -34,7 +34,7 @@ if(isset($_GET['cna'])){
 	alerte('Le ticket en attente a chang&eacute; de propri&eacute;taire !', 'succes');
 }
 if($billetterie['ouvert'] == "oui"){
-	echo ('<p align="center"><a href="billetterie" class="btn btn-danger btn-lg">Faire une nouvelle r&eacute;servation</a></p><br />');
+	echo ('<p align="center"><a href="billetterie_evenements" class="btn btn-danger btn-lg">Faire une nouvelle r&eacute;servation</a></p><br />');
 }else{
 	alerte('La billetterie est fermée.', 'danger');
 }
@@ -57,7 +57,7 @@ if($clcuserbillet['total'] <= 1){
 		<td width="70%" align="center"><strong>&Eacute;v&eacute;nement</strong></td>
 		<td width="20%" align="center">
         	<strong>Actions</strong><br />
-            <a href="imprimer?utilisateur=<?php echo $utilisateur['mail']; ?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Impression group&eacute;e</a>
+            <a href="billetterie_imprimer?utilisateur=<?php echo $utilisateur['mail']; ?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Impression group&eacute;e</a>
         </td>
 	</tr>
 <?php
@@ -91,7 +91,7 @@ while ($donnees = fetch($donnees_req)){
             	<h3><strong>Tesquitoi</strong></h3>
 				<p>
                 	Au nom de : <strong><?php echo mb_strtoupper($donnees['nom']); ?> <?php echo ucfirst($donnees['prenom']); ?></strong>
-					<a href="modification-reservation?id=<?php echo $donnees['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-wrench"></i> Modifier</a>
+					<a href="billetterie_modification?id=<?php echo $donnees['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-wrench"></i> Modifier</a>
 				</p>
       			<p><strong class="untick">Ticket 1 place</strong> - Caisse citoyenne**</p>
       			<p><strong><?php
@@ -106,9 +106,9 @@ while ($donnees = fetch($donnees_req)){
 			</div>
 		</td>
     	<td width="20%" align="center">
-			<p><strong><a href="imprimer?ticket=<?php echo $donnees['id']; ?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Imprimer ce ticket</a></strong></p>
+			<p><strong><a href="billetterie_imprimer?ticket=<?php echo $donnees['id']; ?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Imprimer ce ticket</a></strong></p>
 			<p>&nbsp;</p>
-			<p><strong><a href="suppression-reservation?ticket=<?php echo $donnees['id']; ?>" class="btn btn-danger"><i class="fa fa-times"></i> Supprimer ce ticket</a></strong></p>
+			<p><strong><a href="billetterie_suppression?ticket=<?php echo $donnees['id']; ?>" class="btn btn-danger"><i class="fa fa-times"></i> Supprimer ce ticket</a></strong></p>
 		</td>
 	</tr>
 <?php
@@ -120,7 +120,7 @@ $clcuserbillet = fetch(req('SELECT COUNT(*) AS total FROM __billetterie_attente 
 		<td width="70%" align="center"><strong>&Eacute;v&eacute;nement</strong></td>
 		<td width="20%" align="center">
         	<strong>Actions</strong><br />
-            <a href="imprimer?utilisateur=<?php echo $utilisateur['mail']; ?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Impression group&eacute;e</a>
+            <a href="billetterie_imprimer?utilisateur=<?php echo $utilisateur['mail']; ?>" target="_blank" class="btn btn-info"><i class="fa fa-print"></i> Impression group&eacute;e</a>
 		</td>
 	</tr>
 </table>
@@ -163,7 +163,7 @@ while($whl_event = fetch($whl_event_req)){
             	<h3><strong>Tesquitoi</strong></h3>
 				
                 <p>Au nom de : <strong><?php echo mb_strtoupper($donnees['nom']); ?> <?php echo ucfirst($donnees['prenom']); ?></strong>
-     			<a href="modification-reservation?id=<?php echo $donnees['id']; ?>&attente" class="btn btn-sm btn-warning"><i class="fa fa-wrench"></i> Modifier</a></p>
+     			<a href="billetterie_modification?id=<?php echo $donnees['id']; ?>&attente" class="btn btn-sm btn-warning"><i class="fa fa-wrench"></i> Modifier</a></p>
       
       			<p><strong class="untick">Ticket 1 place</strong> - Caisse citoyenne**</p>
       			<p><strong><?php
@@ -177,7 +177,7 @@ while($whl_event = fetch($whl_event_req)){
       			<p>(<a href="a-propos">voir toutes les informations</a>)</p></div>
 		</td>
 		<td width="20%" align="center">
-        	<p><strong><a href="suppression-reservation?ticket=<?php echo $donnees['id']; ?>&attente" class="btn btn-danger"><i class="fa fa-times"></i> Supprimer ce ticket</a></strong></p>
+        	<p><strong><a href="billetterie_suppression?ticket=<?php echo $donnees['id']; ?>&attente" class="btn btn-danger"><i class="fa fa-times"></i> Supprimer ce ticket</a></strong></p>
         </td>
 	</tr>
 <?php

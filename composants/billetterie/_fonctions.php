@@ -69,11 +69,11 @@ function addReservation(){
 				$donnees = fetch($req);
 				$newidevent = $donnees['parents']+1;
 			}
-			redirection('reservations?newreserv');
+			redirection('billetterie_reservations?newreserv');
 			exit();
 		}
 	}else{
-		redirection('billetterie?toosaved'); 
+		redirection('billetterie_evenements?toosaved'); 
 		exit();
 	}
 }
@@ -115,7 +115,7 @@ function addAttente(){
 				$donnees = fetch($req);
 			}
 			
-			redirection('reservations?attente');
+			redirection('billetterie_reservations?attente');
 			exit();
 		}
 }

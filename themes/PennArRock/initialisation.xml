@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <initialisation>
 	<theme>
+		<type_theme>site</type_theme>
 		<header_infos>
 			<![CDATA[
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

@@ -5,7 +5,7 @@ function billetterie_evenement(){
 		$req = req("SELECT * FROM __billetterie_event WHERE id='".res($_GET['editer'])."'");
 		$d = fetch($req);
 ?>
-    	<form action="billetterie" method="post">
+    	<form action="billetterie_evenements" method="post">
         	<div class="jumbotron">
             	<input type="hidden" name="editer" value="<?php echo $d['id'];?>">
                 <div class="form-group"><label>ID</label><input type="text" class="form-control" value="<?php echo $d['id'];?>" disabled></div>
@@ -17,7 +17,7 @@ function billetterie_evenement(){
                 </div>
                 <div class="form-group"><label>Places maximales</label><input type="text" class="form-control" name="pmax" placeholder="145" value="<?php echo $d['pmax'];?>" required></div>
                 
-                <center><input type="submit" class="btn btn-success" value="Modifier l'événement">&nbsp;<a class="btn btn-warning" href="billetterie">Annuler</a></center>
+                <center><input type="submit" class="btn btn-success" value="Modifier l'événement">&nbsp;<a class="btn btn-warning" href="billetterie_evenements">Annuler</a></center>
           	</div>
      	</form>
         <script>
@@ -30,7 +30,7 @@ function billetterie_evenement(){
 <?php
 	}else{
 ?>
-    	<form action="billetterie" method="post">
+    	<form action="billetterie_evenements" method="post">
         	<div class="jumbotron">
                 <div class="form-group"><label>Lieu</label><input type="text" class="form-control" name="nouveau" placeholder="2 rue Mirabeau" required></div>
                 <label>Date</label>
@@ -40,7 +40,7 @@ function billetterie_evenement(){
                 </div>
                 <div class="form-group"><label>Places maximales</label><input type="text" class="form-control" name="pmax" placeholder="145" required></div>
                 
-                <center><input type="submit" class="btn btn-success" value="Ajouter un événement">&nbsp;<a class="btn btn-warning" href="billetterie">Annuler</a></center>
+                <center><input type="submit" class="btn btn-success" value="Ajouter un événement">&nbsp;<a class="btn btn-warning" href="billetterie_evenements">Annuler</a></center>
           	</div>
      	</form>
         <script>
@@ -97,7 +97,7 @@ function billetterie(){
 			req('DELETE FROM __billetterie_attente WHERE id="'.$f['id'].'"');
 		}
 		req('DELETE FROM __billetterie_event WHERE id="'.res($_GET['supprimer']).'"');
-		echo('<div class="alert alert-info">L\événement a été supprimé !</div>');
+		echo('<div class="alert alert-info">L\'événement a été supprimé !</div>');
 	}
 	
 	if(isset($_POST['nouveau'])){
