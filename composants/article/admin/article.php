@@ -89,7 +89,7 @@ function article(){
           		</thead>
 				<tbody>
 <?php
-	$req = req("SELECT * FROM __article");
+	$req = req("SELECT * FROM __article WHERE drapeau <> 'systeme'");
 		while ($data = fetch($req)) {
 ?>
 <tr>

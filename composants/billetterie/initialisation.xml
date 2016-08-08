@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<initialisation>
+	<composant>
+		<nom>Billetterie</nom>
+		<version>0.2.0</version>
+		<desactivable>oui</desactivable>
+		<reinitialisable>oui</reinitialisable>
+		<supprimable>oui</supprimable>
+		<ressources>oui</ressources>
+		<url>
+				["Billetterie", billetterie, billetterie_evenements];
+				["Réservations", billetterie, billetterie_reservations];
+				["Imprimer", billetterie, billetterie_imprimer, noBody];
+				["Suppression réservation", billetterie, billetterie_suppression];
+				["Modification réservation", billetterie, billetterie_modification]
+		</url>
+		<tagcode></tagcode>
+		<table>__billetterie_attente; __billetterie_configuration; __billetterie_depassement; __billetterie_event; __billetterie_reservation</table>
+		<mysql_install>
+CREATE TABLE IF NOT EXISTS `__billetterie_attente` (
+`id` int(10) NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `parents` text NOT NULL,
+  `naissance_jour` varchar(2) NOT NULL,
+  `naissance_mois` varchar(2) NOT NULL,
+  `naissance_annee` varchar(4) NOT NULL,
+  `telephone` varchar(21) NOT NULL,
+  `tarif` varchar(255) NOT NULL,
+  `commentaires` text NOT NULL,
+  `nodeclare` varchar(1) NOT NULL,
+  `rentre` varchar(1) NOT NULL,
+  `sorti` varchar(1) NOT NULL,
+  `psortir` varchar(1) NOT NULL,
+  `date` varchar(10) NOT NULL,
+  `autorise` varchar(1) NOT NULL,
+  `sexe` varchar(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `__billetterie_configuration` (
+  `variable` varchar(255) NOT NULL,
+  `valeur` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `__billetterie_configuration` (`variable`, `valeur`) VALUES
+('limituserreserv', 'non'),
+('reservationmaxperuser', '999'),
+('ouvert', 'oui'),
+('alertefermeture', 'non'),
+('eventaff', 'ressources/billetterie/affiche.jpg'),
+('alertefermeturemsg', 'La billetterie sera close le 13 Mai à  17h30 ! Réservez vite vos billets !'),
+('eventaffwb', 'ressources/billetterie/affiche_bw.jpg');
+
+CREATE TABLE IF NOT EXISTS `__billetterie_depassement` (
+  `id` int(11) NOT NULL,
+  `depassement` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `__billetterie_event` (
+`id` int(11) NOT NULL,
+  `lieu` text NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `pmax` int(11) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+CREATE TABLE IF NOT EXISTS `__billetterie_reservation` (
+`id` int(11) NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `parents` text NOT NULL,
+  `naissance_jour` varchar(2) NOT NULL,
+  `naissance_mois` varchar(2) NOT NULL,
+  `naissance_annee` varchar(4) NOT NULL,
+  `telephone` varchar(21) NOT NULL,
+  `tarif` varchar(255) NOT NULL,
+  `commentaires` text NOT NULL,
+  `nodeclare` varchar(1) NOT NULL,
+  `rentre` varchar(1) NOT NULL,
+  `sorti` varchar(1) NOT NULL,
+  `psortir` varchar(1) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `autorise` varchar(1) NOT NULL,
+  `sexe` varchar(1) NOT NULL
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=771 ;
+
+ALTER TABLE `__billetterie_attente`
+ ADD UNIQUE KEY `id` (`id`);
+
+ALTER TABLE `__billetterie_configuration`
+ ADD UNIQUE KEY `variable` (`variable`);
+
+ALTER TABLE `__billetterie_depassement`
+ ADD UNIQUE KEY `id` (`id`);
+
+ALTER TABLE `__billetterie_event`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
+
+ALTER TABLE `__billetterie_reservation`
+ ADD UNIQUE KEY `id` (`id`);
+
+ALTER TABLE `__billetterie_attente`
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `__billetterie_event`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `__billetterie_reservation`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+		</mysql_install>
+		<mysql_uninstall></mysql_uninstall>
+	</composant>
+</initialisation>
